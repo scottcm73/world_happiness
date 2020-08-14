@@ -1,38 +1,34 @@
 import os
 import csv
 import json
+import pandas as pd
 
-fname=["2015.csv", "2016.csv", "2017.csv", "2018.csv", "2019.csv"]
+#fname=["2015.csv", "2016.csv", "2017.csv", "2018.csv", "2019.csv"]
+f="2015.csv"
+fname2="country_codes.csv"
 
-data=[]
-json_str_start=""
-json_str=""
-for f in fname:
-    data_path = os.path.join("resources", f)
-    data_path2 = os.path.join("resources", "file.json")
-    with open(data_path, 'r') as csvfile:
-        reader = csv.reader(csvfile, delimiter=',')
-        year=f.replace('.csv', '')
-        json_str_start='{"' + year +'": '
+data_path2 = os.path.join("resources", fname2)
+data2=pd.read_csv(data_path2)
+print(data2.head())
 
-        data_list=list()
-        
-        for row in reader:
-            data_list.append(row)
+data_path = os.path.join("resources", f)
+data_path3=os.path.join("resources", "2015_with_codes.csv")
+data=pd.read_csv(data_path)
+print(data.head())
+year=f.replace('.csv', '')
+merged_df=pd.merge(data, data2, how="left", on="Country")
+print(merged_df.head())
 
-        data = [dict(zip(data_list[0],row)) for row in data_list]
-        data.pop(0)
- 
-        json_str = json_str + json_str_start + json.dumps(data) + " }, \n"
+merged_df.to_csv(data_path3, index=False)
+
+   
 
 
         
     
-print (json_str[0:50])
 
-with open(data_path2, 'w+') as jsonfile:
-     
-    jsonfile.write(json_str)
+
+
 
 
 

@@ -1,4 +1,3 @@
-
 // The svg
 var svg = d3.select("svg"),
   width = +svg.attr("width"),
@@ -10,18 +9,20 @@ var projection = d3.geoMercator()
   .scale(200)
 
   .translate([width / 2, height / 2]);
-domainArray=[0, 100000, 1000000, 10000000, 30000000, 100000000, 500000000]
+
 // Data and color scale
 var data = d3.map();
-var colorScale = d3.scaleThreshold()
-    .domain(domainArray)
-    .range(d3.schemeBlues[7]);
+var colorScale = d3.scaleSequential()
+  .domain([0,10])
+  .interpolator(d3.interpolateRainbow);
 
 // Load external data and boot
 d3.queue()
   .defer(d3.json, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
-  .defer(d3.csv, "world_population2.csv", function(d) { data.set(d.code, +d.pop); })
+  .defer(d3.csv, "resources/2015_with_codes.csv", function(d) { data.set(d.code, +d.happiness_score); })
   .await(ready);
+
+console.log(data)
 
 function ready(error, topo) {
 
