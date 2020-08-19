@@ -11,24 +11,25 @@ var projection = d3.geoMercator()
   .translate([width / 2, height / 2]);
 
 
+var keyval="happines_score"
 var maincsv="resources/2015_with_codes.csv"
-var keyval="happiness_score";
+testform.onsubmit= function(){
+  var keyval=document.getElementById("metric").value;
+}
+var keyval="happiness_score"
 // Data and color scale
 var data = d3.map();
 var colorScale = d3.scaleSequential()
   .domain([0,10])
   .interpolator(d3.interpolateRainbow);
-console.log(keyval)
+
+
 // Load external data and boot
 d3.queue()
-//  .defer(d3.json, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
-//  .defer(d3.csv, "maincsv", function(d){data.set(d.code, +d[keyval]); })
   .defer(d3.json, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
   .defer(d3.csv, maincsv, function(d) { data.set(d.code, +d[keyval]); })
-  
   .await(ready);
-
-console.log(data)
+  //.defer(d3.csv, maincsv, function(d) { data.set(d.code, +d[keyval]); }) 
 
 function ready(error, topo) {
 
@@ -48,4 +49,5 @@ function ready(error, topo) {
         return colorScale(d.total);
       });
     }
+
 
