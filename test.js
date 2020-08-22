@@ -17,16 +17,17 @@ var projection = d3.geoMercator()
   // Data and color scale
   var data = d3.map();
   var colorScale = d3.scaleSequential()
-    .domain([0,8])
+    .domain([0,10])
     .interpolator(d3.interpolateRainbow);
 
-// Load external data and boot
-// d3.select('#metric')
-//   .on('change', function() {
-//     window.keyval = eval(d3.select(this).property('value'));
-// });
+//Load external data and boot
+// function getMetric() {
+//   keyval=d3.select("#metric").property("value");
+//   return keyval
+// }
 
-// console.log(window.keyval)
+keyval=getMetric()
+console.log(keyval)
 
 d3.queue()
   .defer(d3.json, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
