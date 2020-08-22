@@ -11,7 +11,7 @@
 </head>
 <body>
 <!-- Create an element where the map will take place -->
-<form id="testform" action="/test.html" method="get"> 
+
     <label for="year">Choose a year:</label>
     <select id="hyear" name="hyear">
         <option value="2015">2015</option>
@@ -24,17 +24,17 @@
       <br>
 
       <label for="Mapped Metric">Choose a metric to map:</label>
-      <select id="metric" >
+      <select id="metric" onchange="getMetric()">
           <option value="happiness_score">Happiness Score</option>
-          <option value="GDP per Capita">GDP per Capita</option>
-          <option value="Health (Life Expectancy)">Health (Life Expectancy)</option>
-          <option value="Freedom">Freedom</option>
-          <option value="Trust (Government Corruption)">Trust (Government Corruption)</option>
+          <option value="gdp_per_capita">GDP per Capita</option>
+          <option value="health_(life_expectancy)">Health (Life Expectancy)</option>
+          <option value="freedom">Freedom</option>
+          <option value="trust_(government_corruption)">Trust (Government Corruption)</option>
         </select>
         <br>
         <br>
 <input type="submit" name="name" value="Submit" />
-</form>
+
 <svg id="my_dataviz" width="2000" height="1500"></svg>
 
 <script type="module" src="test.js">
