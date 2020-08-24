@@ -28,18 +28,24 @@ Testing of the dynamic chloropleth maps was done manually with Firefox.
 
 ## Deployment
 
-To run the JavaScript locally, go to the folder with the files in the command line, and run the command:
+To run the JavaScript locally, go to the website folder from the command line, and run the command:
 
 	python -m http.server
 
 Then, type 127.0.0.1:8000/test.html into your browser's address bar.
 
+
+
 ## Built With
 
-*  Microsoft excel was used to make the field names the same for all the files
-*  Python was used to make all the csv files into a single json file.
+*  Microsoft excel was used to make the field names the same for all the files.
 
+*  A combination of Python and pandas and excel were used to add country three-letter codes.
 
+*  The HTML file links to volume 4 of d3.js and not volume 5 because the eample chloropleth map uses volume 4 and doesn't work with volume 5. The d3 files are located in the d3 folder within the javascript folder of the website folder.
+
+*  The resources folder was moved into the website folder after the data was prepared.
+ 
 
 ## Versioning
 
