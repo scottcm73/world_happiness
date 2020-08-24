@@ -11,7 +11,11 @@ var projection = d3.geoMercator()
   .translate([width / 2, height / 2]);
 
 var keyval=d3.select("#metric").property("value");
-if (keyval=="happiness_score"){tmax=10;} else if(keyval=="gdp_per_capita"){tmax=1.4;}else{tmax=1;}
+if (keyval=="happiness_score"){tmax=10;} 
+  else if(keyval=="gdp_per_capita"){tmax=1.4;}
+  else if (keyval=="trust_(government_corruption)"){tmax=.5;}
+  else if (keyval=="freedom"){tmax=.68}
+  else {tmax=1;}
 var maincsv="../resources/2015_with_codes.csv"
 
 d3.select('#metric')
