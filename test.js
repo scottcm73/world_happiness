@@ -3,40 +3,45 @@
 var svg = d3.select("svg"),
   width = +svg.attr("width"),
   height = +svg.attr("height");
-
+var tmax=1
 // Map and projection
 var path = d3.geoPath();
 var projection = d3.geoMercator()
   .scale(200)
   .translate([width / 2, height / 2]);
 
-  var keyval="happiness_score"
-  var maincsv="resources/2015_with_codes.csv"
-  
-  
-  // Data and color scale
-  var data = d3.map();
-  var colorScale = d3.scaleSequential()
-    .domain([0,10])
-    .interpolator(d3.interpolateRainbow);
+var keyval=d3.select("#metric").property("value");
+if (keyval=="happiness_score"){tmax=10;} else if(keyval=="gdp_per_capita"){tmax=1.4;}else{tmax=1;}
+var maincsv="resources/2015_with_codes.csv"
 
-//Load external data and boot
-// function getMetric() {
-//   keyval=d3.select("#metric").property("value");
-//   return keyval
-// }
+d3.select('#metric')
+.on('change', function() {
+  
+  window.keyval=d3.select("#metric").property("value");
+  console.log(window.keyval)
 
-keyval=getMetric()
-console.log(keyval)
+
+  location.reload()
+  console.log(window.tmax)
+});
+
 
 d3.queue()
   .defer(d3.json, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
-  .defer(d3.csv, maincsv, function(d) { data.set(d.code, +d[keyval]); })
+  .defer(d3.csv, maincsv, function(d) { data.set(d.code, +d[window.keyval]); })
   .await(ready);
 
-function ready(error, topo) {
+  // Data and color scale
+var data = d3.map();
 
+var colorScale = d3.scaleSequential()
+  .domain([0, tmax])
+  .interpolator(d3.interpolateRainbow);
+
+function ready(error, topo) {
+  
   // Draw the map
+
   svg.append("g")
     .selectAll("path")
     .data(topo.features)
