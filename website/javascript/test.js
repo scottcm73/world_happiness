@@ -27,7 +27,7 @@ d3.select('#metric')
 
 
 d3.queue()
-  .defer(d3.json, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
+  .defer(d3.json, "../resources/geojson/world.geojson")
   .defer(d3.csv, maincsv, function(d) { data.set(d.code, +d[window.keyval]); })
   .await(ready);
 
