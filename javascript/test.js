@@ -106,7 +106,7 @@ var data = d3.map();
 var colorScale = d3.scaleSequential()
   .domain([0, tmax])
   .interpolator(d3.interpolateRainbow);
-continuous("#legend", colorScale);
+
 function ready(error, topo) {
   
   // Draw the map
@@ -126,3 +126,4 @@ function ready(error, topo) {
         return colorScale(d.total);
       });
     }
+continuous("#legend", colorScale);
