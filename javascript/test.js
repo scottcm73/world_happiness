@@ -68,7 +68,7 @@ function continuous(selector_id, colorscale) {
 var svg = d3.select("svg"),
   width = +svg.attr("width"),
   height = +svg.attr("height");
-var tmax=1
+var tmax=10
 // Map and projection
 var path = d3.geoPath();
 var projection = d3.geoMercator()
@@ -104,7 +104,7 @@ d3.queue()
 var data = d3.map();
 
 var colorScale = d3.scaleSequential()
-  .domain([0, tmax])
+  .domain([0, window.tmax])
   .interpolator(d3.interpolateRainbow);
 
 function ready(error, topo) {
