@@ -74,8 +74,13 @@ var path = d3.geoPath();
 var projection = d3.geoMercator()
   .scale(200)
   .translate([width / 2, height / 2]);
+if (localStorage.getItem("selecteditem")===null){
+var keyval=d3.select("#metric").property("value");}
+else {keyval=localStorage.getItem("selecteditem");
+d3.select('#metric').property('value', localStorage.getItem("selecteditem"))};
 
-var keyval=d3.select("#metric").property("value");
+     
+
 if (keyval=="happiness_score"){tmax=10;} 
   else if(keyval=="gdp_per_capita"){tmax=1.4;}
   else if (keyval=="trust_(government_corruption)"){tmax=.5;}
@@ -85,13 +90,15 @@ var maincsv="../resources/2015_with_codes.csv"
 
 d3.select('#metric')
 .on('change', function() {
-  
+  //some browsers reset the selector as "happiness_score" after reload. This keeps the value.
   window.keyval=d3.select("#metric").property("value");
+  localStorage.setItem("selecteditem", d3.select("#metric").property("value"));
   console.log(window.keyval)
 
+  window.location.reload()
+  d3.select('#myselect').property('value', localStorage.getItem("selecteditem") );
 
-  location.reload()
-  console.log(window.tmax)
+
 });
 
 
