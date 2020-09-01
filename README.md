@@ -44,12 +44,15 @@ Then, type 127.0.0.1:8000/test.html into your browser's address bar.
 
 *  The HTML file links to volume 4 of d3.js and not volume 5 because the eample chloropleth map uses volume 4 and doesn't work with volume 5. The d3 files are located in the d3 folder within the javascript folder of the website folder.
 
-*  The resources folder was moved into the website folder after the data was prepared.
+* Heroku.com was used for deployment. This deployment requires an index.php file that points to the index.html file. It also requires the php buildpack, but not the python buildpack. Python is not used in the web application; it was only used in the data preparation. 
+
+The final application is at: https://d3-chloropleth-map.herokuapp.com/
+
  
 
 ## Versioning
 
-I use github for versioning. For the versions available, see https://github.com/scottcm73/world_happiness/tree/master. 
+Github was used for versioning. For the versions available, see https://github.com/scottcm73/world_happiness/tree/master. 
 
 ## Author
 
