@@ -67,7 +67,9 @@ An initial version of a world chloropleth map was created by d3.org. Subsequent 
 
 ## Reference
 
-Most basic choropleth map in d3.js. d3.org Retrieved from: https://www.d3-graph-gallery.com/graph/choropleth_basic.html.
+Most basic choropleth map in d3.js. d3.org. Retrieved from: https://www.d3-graph-gallery.com/graph/choropleth_basic.html.
+
+Continuous Legend. bl.ocks.org. Retrieved from http://bl.ocks.org/syntagmatic/e8ccca52559796be775553b467593a9f.
 
 Aché, M. World Happiness Report up to 2020 Bliss scored agreeing to financial, social, etc. Kaggle.com. Retrieved from: 
 https://www.kaggle.com/mathurinache/world-happiness-report.
