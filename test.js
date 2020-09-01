@@ -19,10 +19,11 @@ d3.select('#metric')
   
   window.keyval=d3.select("#metric").property("value");
   console.log(window.keyval)
-
-
-  location.reload()
+  d3.select('#legend').remove();
+  d3.select('#my_dataviz').remove();
   console.log(window.tmax)
+  console.log(window.keyval)
+}
 });
 
 
