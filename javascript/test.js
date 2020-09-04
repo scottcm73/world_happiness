@@ -79,17 +79,19 @@ var keyval=d3.select("#metric").property("value");}
 else {keyval=localStorage.getItem("localmetric");
 d3.select('#metric').property('value', localStorage.getItem("localmetric"))};
 
-if (localStorage.getItem("localmetric")===null){
-  var keyval=d3.select("#metric").property("value");}
-else {keyval=localStorage.getItem("localmetric");
-  d3.select('#metric').property('value', localStorage.getItem("localmetric"))};   
+if (localStorage.getItem("localhyear")===null){
+  var maincsv=d3.select("#hyear").property("value");
+  window.maincsv="../resources/" + window.maincsv;}
+else {var maincsv=localStorage.getItem("localhyear");
+  d3.select("#hyear").property("value", localStorage.getItem("localhyear"));
+  window.maincsv="../resources/" + window.maincsv;};   
 
 if (keyval=="happiness_score"){tmax=10;} 
   else if(keyval=="gdp_per_capita"){tmax=1.4;}
   else if (keyval=="trust_(government_corruption)"){tmax=.5;}
   else if (keyval=="freedom"){tmax=.68}
   else {tmax=1;}
-var maincsv="../resources/2015_with_codes.csv"
+
 
 d3.select('#metric')
 .on('change', function() {
@@ -104,10 +106,23 @@ d3.select('#metric')
 
 });
 
+d3.select('#hyear')
+.on('change', function() {
+  //some browsers reset the selector as "happiness_score" after reload. This keeps the value.
+  window.maincsv=d3.select("#hyear").property("value");
+  localStorage.setItem("localhyear", d3.select("#hyear").property("value"));
+  console.log(window.maincsv)
+
+  window.location.reload()
+  d3.select('#myselect2').property('value', localStorage.getItem("localhyear") );
+
+
+});
+
 
 d3.queue()
   .defer(d3.json, "../resources/geojson/world.geojson")
-  .defer(d3.csv, maincsv, function(d) { data.set(d.code, +d[window.keyval]); })
+  .defer(d3.csv, window.maincsv, function(d) { data.set(d.code, +d[window.keyval]); })
   .await(ready);
 
   // Data and color scale
@@ -115,7 +130,7 @@ var data = d3.map();
 
 var colorScale = d3.scaleSequential()
   .domain([0, window.tmax])
-  .interpolator(d3.interpolateRainbow);
+  .interpolator(d3.interpolateRainbow)
 
 function ready(error, topo) {
   
