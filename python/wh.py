@@ -4,7 +4,7 @@ import json
 import pandas as pd
 
 #fname=["2015.csv", "2016.csv", "2017.csv", "2018.csv", "2019.csv"]
-f="2019.csv"
+f="2017.csv"
 fname2="country_codes.csv"
 
 
@@ -17,7 +17,7 @@ data_path = os.path.join("..","resources", f)
 data_path2 = os.path.join("..","resources", fname2)
 
 
-data_path4=os.path.join("..","resources", "2019wc.csv")
+data_path4=os.path.join("..","resources", "2017wc.csv")
 # data=pd.read_csv(data_path)
 # print(data.head())
 # year=f.replace('.csv', '')
