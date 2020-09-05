@@ -74,9 +74,9 @@ var projection = d3.geoMercator()
   .scale(200)
   .translate([width / 2, height / 2]);
 if (localStorage.getItem("localmetric")===null){
-var keyval=d3.select("#metric").property("value");}
+  var keyval=d3.select("#metric").property("value");}
 else {keyval=localStorage.getItem("localmetric");
-d3.select('#metric').property('value', localStorage.getItem("localmetric"))};
+  d3.select('#metric').property('value', localStorage.getItem("localmetric"))};
 
 if (localStorage.getItem("localhyear")===null){
   var maincsv=d3.select("#hyear").property("value");
@@ -86,10 +86,11 @@ else {var maincsv=localStorage.getItem("localhyear");
   window.maincsv="../resources/" + window.maincsv;};   
 
 if (keyval=="happiness_score"){tmax=10;} 
-  else if(keyval=="gdp_per_capita"){tmax=1.4;}
-  else if (keyval=="trust_(government_corruption)"){tmax=.5;}
-  else if (keyval=="freedom"){tmax=.68}
-  else {tmax=1;}
+else if(keyval=="gdp_per_capita"){tmax=1.4;}
+else if (keyval=="trust_(government_corruption)"){tmax=.5;}
+else if (keyval=="freedom"){tmax=.68}
+else if (keyval=="health_(life_expectancy)"){tmax=1;}
+else {tmax=1;}
 
 
 d3.select('#metric')
@@ -98,11 +99,8 @@ d3.select('#metric')
   window.keyval=d3.select("#metric").property("value");
   localStorage.setItem("localmetric", d3.select("#metric").property("value"));
   console.log(window.keyval)
-
   window.location.reload()
   d3.select('#myselect').property('value', localStorage.getItem("localmetric") );
-
-
 });
 
 d3.select('#hyear')
@@ -111,11 +109,8 @@ d3.select('#hyear')
   window.maincsv=d3.select("#hyear").property("value");
   localStorage.setItem("localhyear", d3.select("#hyear").property("value"));
   console.log(window.maincsv)
-
   window.location.reload()
-  d3.select('#myselect2').property('value', localStorage.getItem("localhyear") );
-
-
+  d3.select('#myselect2').property('value', localStorage.getItem("localhyear") )
 });
 
 
@@ -129,7 +124,7 @@ var data = d3.map();
 
 var colorScale = d3.scaleSequential()
   .domain([0, window.tmax])
-  .interpolator(d3.interpolateRainbow)
+  .interpolator(d3.interpolateSpectral)
 
 function ready(error, topo) {
   

@@ -1,4 +1,4 @@
-Happiness Rank,Country,Happiness Score,GDP per Capita,Health (Life Expectancy),Freedom,Trust (Government Corruption),Year
+Happiness Rank,country,Happiness Score,GDP per Capita,Health (Life Expectancy),Freedom,Trust (Government Corruption),Year
 1,Finland,7.632,1.305,0.874,0.681,0.393,2018
 2,Norway,7.594,1.456,0.861,0.686,0.34,2018
 3,Denmark,7.555,1.351,0.868,0.683,0.408,2018

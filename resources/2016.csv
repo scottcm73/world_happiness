@@ -1,4 +1,4 @@
-Country,Happiness Rank,Happiness Score,GDP per Capita,Health (Life Expectancy),Freedom,Trust (Government Corruption),Year
+country,Happiness Rank,Happiness Score,GDP per Capita,Health (Life Expectancy),Freedom,Trust (Government Corruption),Year
 Denmark,1,7.526,1.44178,0.79504,0.57941,0.44453,2016
 Switzerland,2,7.509,1.52733,0.86303,0.58557,0.41203,2016
 Iceland,3,7.501,1.42666,0.86733,0.56624,0.14975,2016

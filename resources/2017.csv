@@ -1,4 +1,4 @@
-Country,Happiness Rank,Happiness Score,GDP per Capita,Health (Life Expectancy),Freedom,Trust (Government Corruption),Year
+country,Happiness Rank,Happiness Score,GDP per Capita,Health (Life Expectancy),Freedom,Trust (Government Corruption),Year
 Norway,1,7.594444821,1.53352356,0.635422587,0.362012237,2.277026653,2017
 Denmark,2,7.581728065,1.551121593,0.626006722,0.355280489,2.313707352,2017
 Iceland,3,7.622030473,1.610574007,0.627162635,0.475540221,2.322715282,2017
