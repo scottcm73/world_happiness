@@ -7,7 +7,46 @@
 <script src="/javascript/d3/d3.v4.js"></script>
 <script src="/javascript/d3/d3-scale-chromatic.v1.min.js"></script>
 <script src="/javascript/d3/d3-geo-projection.v2.min.js"></script>
+<style>
 
+
+  body {
+      font-family: "Open Sans", sans-serif;
+      font-size: 16px;
+      padding: 40px;
+  }
+  h1{
+    font-size: 3em;
+    font-weight: 700;
+    color: #0099FF;
+  }
+  a{
+    color: #333399;
+  }
+  a:hover{
+    color: #FF0099;
+  }
+  
+  .countries {
+      stroke: #fff;
+      stroke-width:1px;
+  }
+  .countries:hover{
+    opacity: .6;
+  }
+  
+  .legendLinear text {
+      font-size: 12px;
+  }
+  .d3-tip {
+    line-height: 1;
+    padding: 12px;
+    background: rgba(43,43,43, 0.8);
+    color: #fff;
+    border-radius: 2px;
+  }
+  
+  </style>
 </head>
 <body>
 <!-- Create an element where the map will take place -->
