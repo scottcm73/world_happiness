@@ -7,13 +7,6 @@ verify_ssl = true
 
 [packages]
 pandas = "*"
-matplotlib = "*"
-geopandas = "*"
-descartes = "*"
-plotly = "*"
-shapely = "*"
-fiona = "*"
-cython = "*"
 numpy = "*"
 
 [requires]
