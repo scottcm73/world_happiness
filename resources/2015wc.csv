@@ -1,4 +1,4 @@
-Country,happiness_rank,happiness_score,gdp_per_capita,health(life_expectancy),freedom,trust_(government_corruption),year,code
+country,happiness_rank,happiness_score,gdp_per_capita,health_(life_expectancy),freedom,trust_(government_corruption),year,code
 Switzerland,1,7.587,1.39651,0.94143,0.66557,0.41978,2015,CHE
 Iceland,2,7.561,1.30232,0.94784,0.62877,0.14145,2015,ISL
 Denmark,3,7.527,1.32548,0.87464,0.64938,0.48357,2015,DNK
