@@ -7,51 +7,13 @@
 <script src="/javascript/d3/d3.v4.js"></script>
 <script src="/javascript/d3/d3-scale-chromatic.v1.min.js"></script>
 <script src="/javascript/d3/d3-geo-projection.v2.min.js"></script>
-<style>
-
-
-  body {
-      font-family: "Open Sans", sans-serif;
-      font-size: 16px;
-      padding: 40px;
-  }
-  h1{
-    font-size: 3em;
-    font-weight: 700;
-    color: #0099FF;
-  }
-  a{
-    color: #333399;
-  }
-  a:hover{
-    color: #FF0099;
-  }
-  
-  .countries {
-      stroke: #fff;
-      stroke-width:1px;
-  }
-  .countries:hover{
-    opacity: .6;
-  }
-  
-  .legendLinear text {
-      font-size: 12px;
-  }
-  .d3-tip {
-    line-height: 1;
-    padding: 12px;
-    background: rgba(43,43,43, 0.8);
-    color: #fff;
-    border-radius: 2px;
-  }
-  
-  </style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 <body>
 <!-- Create an element where the map will take place -->
 
-    <label for="year">Choose a year:</label>
+<div class="form-group" align="center">
+  <label for="exampleFormControlSelect1">Year</label>
     <select id="hyear" name="hyear">
         <option value="2015wc.csv">2015</option>
         <option value="2016wc.csv">2016</option>
@@ -59,19 +21,20 @@
         <option value="2018wc.csv">2018</option>
         <option value="2019wc.csv">2019</option>
       </select>
-      <br>
-      <br>
+</div>      
 
-      <label for="Mapped Metric">Choose a metric to map:</label>
-      <select id="metric">
+
+
+<div class="form-group" align="center">
+  <label for="exampleFormControlSelect2">Mapped Metric</label>
+      <select id="metric" align="center">
           <option value="happiness_score">Happiness Score</option>
           <option value="gdp_per_capita">GDP per Capita</option>
           <option value="health_(life_expectancy)">Health (Life Expectancy)</option>
           <option value="freedom">Freedom</option>
           <option value="trust_(government_corruption)">Trust (Government Corruption)</option>
-        </select>
-        <br>
-        <br>
+      </select>
+</div>
 
 <div id="legend" style="display: inline-block"></div>
 <svg id="my_dataviz" width="2000" height="1500"></svg>
