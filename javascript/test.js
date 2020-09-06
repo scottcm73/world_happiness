@@ -146,3 +146,5 @@ function ready(error, topo) {
       });
     }
 continuous("#legend", colorScale);
+
+   
