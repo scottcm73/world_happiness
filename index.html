@@ -11,8 +11,12 @@
 </head>
 <body>
 <!-- Create an element where the map will take place -->
-
-<div class="form-group" align="center">
+<br>
+<br>
+<table align="center">
+<tr>
+  <td>
+<div class="form-group" align="left">
   <label for="exampleFormControlSelect1">Year</label>
     <select id="hyear" name="hyear">
         <option value="2015wc.csv">2015</option>
@@ -21,13 +25,15 @@
         <option value="2018wc.csv">2018</option>
         <option value="2019wc.csv">2019</option>
       </select>
-</div>      
+</div> 
+  </td>     
+</tr>
 
-
-
-<div class="form-group" align="center">
+<tr>
+<td>
+<div class="form-group" align="left">
   <label for="exampleFormControlSelect2">Mapped Metric</label>
-      <select id="metric" align="center">
+      <select id="metric" >
           <option value="happiness_score">Happiness Score</option>
           <option value="gdp_per_capita">GDP per Capita</option>
           <option value="health_(life_expectancy)">Health (Life Expectancy)</option>
@@ -35,7 +41,9 @@
           <option value="trust_(government_corruption)">Trust (Government Corruption)</option>
       </select>
 </div>
-
+</td>
+</tr>
+</table>
 <div id="legend" style="display: inline-block"></div>
 <svg id="my_dataviz" width="2000" height="1500"></svg>
 
