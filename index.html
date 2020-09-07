@@ -8,6 +8,22 @@
 <script src="/javascript/d3/d3-scale-chromatic.v1.min.js"></script>
 <script src="/javascript/d3/d3-geo-projection.v2.min.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<style>
+.svg-container {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+  vertical-align: top;
+  overflow: hidden;
+}
+.svg-content {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+</style>
 </head>
 <body>
 <!-- Create an element where the map will take place -->
@@ -45,7 +61,9 @@
 </tr>
 </table>
 <div id="legend" style="display: inline-block"></div>
-<svg id="my_dataviz" width="2000" height="1500"></svg>
+
+
+<svg viewbox="50 0 1250 800"  width="1200" height="800"></svg>
 
 <script src="/javascript/test.js">
    
@@ -54,7 +72,9 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-8">
+    <div class="col"></div>
+    <div class="col-6">
+  
 The happiness score comes from a representative survey conducted by the Gallup of each of 155 countries where a typical survey size is 1000 people per country per year. 
 <br>
 <br>
@@ -62,7 +82,11 @@ This score is known as the Cantril ladder. The survey urges respondents to asses
 <br>
 <br>
 Other metrics in the report are estimates of the extent to which particular factors such as levels of GDP per capita, life expectancy, freedom, and perceived government corruption, contribute to higher life evaluations in each country. 
-   </div>  
+
+
+</div>
+<div class="col"></div>
+ 
   </div>
 </div>
 </body>
