@@ -63,10 +63,12 @@ function continuous(selector_id, colorscale) {
     .attr("transform", "translate(" + (legendwidth - margin.left - margin.right + 3) + "," + (margin.top) + ")")
     .call(legendaxis);
 };
+
 // The svg
 var svg = d3.select("svg"),
   width = +svg.attr("width"),
   height = +svg.attr("height");
+
 var tmax=10
 // Map and projection
 var path = d3.geoPath();
