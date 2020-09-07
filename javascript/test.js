@@ -64,10 +64,15 @@ function continuous(selector_id, colorscale) {
     .call(legendaxis);
 };
 
-// The svg
+//The svg
 var svg = d3.select("svg"),
   width = +svg.attr("width"),
   height = +svg.attr("height");
+// var svg = d3.select("div#container")
+//   .append("svg")
+//   .attr("preserveAspectRatio", "xMinYMin meet")
+//   .attr("viewBox", "0 0 1200 800")
+//   .classed("svg-content", true);
 
 var tmax=10
 // Map and projection
