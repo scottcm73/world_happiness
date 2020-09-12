@@ -34,7 +34,7 @@ To run the JavaScript locally, go to the website folder from the command line, a
 
 Then, type 127.0.0.1:8000/test.html into your browser's address bar.
 
-![alt text](http://url/to/img.png)
+![alt text](https://github.com/scottcm73/world_happiness/blob/master/images/happiness_score_map.png?raw=true)
 
 ## Built With
 
