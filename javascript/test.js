@@ -120,21 +120,23 @@ d3.select('#hyear')
   d3.select('#myselect2').property('value', localStorage.getItem("localhyear") )
 });
 
-
-d3.queue()
-  .defer(d3.json, "../resources/geojson/world.geojson")
-  .defer(d3.csv, window.maincsv, function(d) { data.set(d.code, +d[window.keyval]); })
-  .await(ready);
+var data = new Map();
+Promise.all([
+ d3.json("../resources/geojson/world.geojson"),
+d3.csv(window.maincsv)]). then(d=>
+ready(null, d[0], d[1])
+);
 
   // Data and color scale
-var data = d3.map();
+
 
 var colorScale = d3.scaleSequential()
   .domain([0, window.tmax])
   .interpolator(d3.interpolateSpectral)
 
-function ready(error, topo) {
+function ready(error, topo, stats) {
   
+  stats.forEach(d=>data.set(d.code, +d[window.keyval])),
   // Draw the map
 
   svg.append("g")
@@ -153,5 +155,3 @@ function ready(error, topo) {
       });
     }
 continuous("#legend", colorScale);
-
-   
