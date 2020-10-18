@@ -81,12 +81,12 @@ var path = d3.geoPath();
 var projection = d3.geoMercator()
   .scale(200)
   .translate([width / 2, height / 2]);
-if (localStorage.getItem("localmetric")===null){
+if (sessionStorage.getItem("localmetric")===null){
   var keyval=d3.select("#metric").property("value");}
-else {keyval=localStorage.getItem("localmetric");
-  d3.select('#metric').property('value', localStorage.getItem("localmetric"))};
+else {keyval=sessionStorage.getItem("localmetric");
+  d3.select('#metric').property('value', sessionStorage.getItem("localmetric"))};
 
-if (localStorage.getItem("localhyear")===null){
+if (sessionStorage.getItem("localhyear")===null){
   var maincsv=d3.select("#hyear").property("value");
   console.log(maincsv)
   csvlist.splice(csvlist.indexOf(maincsv), 1)
@@ -95,8 +95,8 @@ if (localStorage.getItem("localhyear")===null){
   console.log(csvlist)
   window.maincsv="../resources/" + window.maincsv;}
 
-else {var maincsv=localStorage.getItem("localhyear");
-  d3.select("#hyear").property("value", localStorage.getItem("localhyear"));
+else {var maincsv=sessionStorage.getItem("localhyear");
+  d3.select("#hyear").property("value", sessionStorage.getItem("localhyear"));
   console.log(maincsv)
   csvlist.splice(csvlist.indexOf(maincsv), 1)
   window.csvlistpath=csvlist.map(d=>"../resources/" + d);
@@ -123,20 +123,20 @@ d3.select('#metric')
 .on('change', function() {
   //some browsers reset the selector as "happiness_score" after reload. This keeps the value.
   window.keyval=d3.select("#metric").property("value");
-  localStorage.setItem("localmetric", d3.select("#metric").property("value"));
+  sessionStorage.setItem("localmetric", d3.select("#metric").property("value"));
   console.log(window.keyval)
   window.location.reload()
-  d3.select('#myselect').property('value', localStorage.getItem("localmetric") );
+  d3.select('#myselect').property('value', sessionStorage.getItem("localmetric") );
 });
 
 d3.select('#hyear')
 .on('change', function() {
   //some browsers reset the selector as "happiness_score" after reload. This keeps the value.
   window.maincsv=d3.select("#hyear").property("value");
-  localStorage.setItem("localhyear", d3.select("#hyear").property("value"));
+  sessionStorage.setItem("localhyear", d3.select("#hyear").property("value"));
   console.log(window.maincsv)
   window.location.reload()
-  d3.select('#myselect2').property('value', localStorage.getItem("localhyear") )
+  d3.select('#myselect2').property('value', sessionStorage.getItem("localhyear") )
 });
 
 var data = new Map();
