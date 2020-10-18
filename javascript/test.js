@@ -73,6 +73,7 @@ var svg = d3.select("svg"),
 //   .attr("preserveAspectRatio", "xMinYMin meet")
 //   .attr("viewBox", "0 0 1200 800")
 //   .classed("svg-content", true);
+var csvlist=["2015wc.csv", "2016wc.csv", "2017wc.csv", "2018wc.csv", "2019wc.csv"];
 
 var tmax=10
 // Map and projection
@@ -87,9 +88,20 @@ else {keyval=localStorage.getItem("localmetric");
 
 if (localStorage.getItem("localhyear")===null){
   var maincsv=d3.select("#hyear").property("value");
+  console.log(maincsv)
+  csvlist.splice(csvlist.indexOf(maincsv), 1)
+  
+  window.csvlistpath=csvlist.map(d=>"../resources/" + d);
+  console.log(csvlist)
   window.maincsv="../resources/" + window.maincsv;}
+
 else {var maincsv=localStorage.getItem("localhyear");
   d3.select("#hyear").property("value", localStorage.getItem("localhyear"));
+  console.log(maincsv)
+  csvlist.splice(csvlist.indexOf(maincsv), 1)
+  window.csvlistpath=csvlist.map(d=>"../resources/" + d);
+ 
+  console.log(csvlist)
   window.maincsv="../resources/" + window.maincsv;};   
 
 if (keyval=="happiness_score"){tmax=10;} 
@@ -99,7 +111,14 @@ else if (keyval=="freedom"){tmax=.68}
 else if (keyval=="health_(life_expectancy)"){tmax=1;}
 else {tmax=1;}
 
+function promise3(){new Promise((resolve, reject) => {
+  
 
+  for(var i=0; i<window.csvlistpath.length; i++){
+    
+    d3.csv(window.csvlistpath[i])
+  }
+})};
 d3.select('#metric')
 .on('change', function() {
   //some browsers reset the selector as "happiness_score" after reload. This keeps the value.
@@ -123,7 +142,7 @@ d3.select('#hyear')
 var data = new Map();
 Promise.all([
  d3.json("../resources/geojson/world.geojson"),
-d3.csv(window.maincsv)]). then(d=>
+d3.csv(window.maincsv), promise3()]). then(d=>
 ready(null, d[0], d[1])
 );
 
@@ -155,3 +174,4 @@ function ready(error, topo, stats) {
       });
     }
 continuous("#legend", colorScale);
+
